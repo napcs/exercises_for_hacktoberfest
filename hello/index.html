@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Hello</title>
+  </head>
+  <body>
+    <form id="name_form">
+      <label for="name">What is your name?</label>
+      <input id="person_name" type="text">
+      <input type="submit" value="Click me!">
+    </form>
+
+    <div>
+      <p id="output">Fill in the form and press the button.</p>
+    </div>
+
+    <script charset="utf-8">
+      var person_name, form;
+
+      person_name = document.getElementById('name');
+      form = document.getElementById('name_form');
+      output = document.getElementById('output');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        output.innerHTML = "Hello, " + person_name.value + "!";
+      });
+    </script>
+
+  </body>
+</html>
