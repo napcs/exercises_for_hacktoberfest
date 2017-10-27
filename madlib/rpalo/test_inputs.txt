@@ -1,0 +1,18 @@
+elephant
+squat
+happy
+crazily
+Jim
+She
+n
+
+# NOTE: You can use this file to quickly put in inputs.
+# The first 7 lines correspond to
+NOUN
+VERB
+ADJECTIVE
+ADVERB
+NAME
+He/She/etc.
+y/n
+# Usage: cat test_inputs.txt | ./madlib
