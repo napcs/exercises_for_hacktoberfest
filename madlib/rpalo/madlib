@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+# Madlib
+# Author: Ryan Palo
+# Takes in a bunch of parts of speech and outputs a story!
+
+# Get inputs
+read -r -p "Enter a NOUN: > " noun
+read -r -p "Enter a VERB: > " verb
+read -r -p "Enter an ADJECTIVE: > " adjective
+read -r -p "Enter an ADVERB: > " adverb
+read -r -p "Enter a NAME: > " name
+read -r -p "Enter a GENDER PRONOUN: [He, She, etc.] > " gender
+read -r -p "SHOULD $gender DO IT? [y/n] > " do_it
+
+# Handle the do_it input
+if [[ "$do_it" == [yY] ]]; then
+  last_line="| and $gender said, 'Outputting limericks in HEREDOCS makes you cool!'"
+elif [[ "$do_it" == [nN] ]]; then
+  last_line="| and $gender gave up and went home because they were so mean."
+else
+  last_line=$( CAT <<END
+| and $gender sai-- listen here, you.  I give and I give, and I'm trying to
+| do my best to make this a fun, whimsical experience for you, and
+| all I ask for in return is a simple answer to a yes or no question,
+| but noooooo, look at Captain Smarty Pants over here, who's waaaaay too
+| cool to even participate.  Well, I've got news for you, Buster.
+| You can take your '$do_it' and SHOVE IT UP YOUR--
+| ...
+| ~~~REBOOTING~~~
+| And they lived happily ever after.  The End.  :)
+END
+)
+fi
+
+# Output the final madlib
+cat <<END
+===================================================================
+| There once was a $noun named $name,
+| Who everyone thought was a fool.
+| $gender $adverb ${verb}ed every day,
+| in a quite $adjective way,
+$last_line
+===================================================================
+END
+
+exit 0
