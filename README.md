@@ -8,7 +8,7 @@ Ready for the challenge?
 
 ## The Challenge
 
-In 2015, I published my book [Exercises for Programmers](http://pragprog.com/titles/bhwb). It's a collection of programming practice problems that are designed to take you through the basics of any programming language. It's perfect for the beginner, but it's great for experienced coders too. For example. you can do each of these exercises while learning Go, Elixir, Ruby, Python, Java, or even iOS or Android development.
+In 2015, I published my book [Exercises for Programmers](http://pragprog.com/titles/bhwb). It's a collection of programming practice problems that are designed to take you through the basics of any programming language. It's perfect for the beginner, but it's great for experienced coders too. For example, you can do each of these exercises while learning Go, Elixir, Ruby, Python, Java, or even iOS or Android development.
 
 The following exercises are publicly available as excerpts from the book.
 
@@ -18,7 +18,7 @@ The following exercises are publicly available as excerpts from the book.
 * [Who's In Space](http://media.pragprog.com/titles/bhwb/space.pdf)
 
 
-Implement your solution to one (ore more) of these challenges in your programming language of choice.
+Implement your solution to one (or more) of these challenges in your programming language of choice.
 
 Want to buy the full book and support my work? You can get the print book or the ebook for 25% off with the coupon `Hacktoberfest`.
 
