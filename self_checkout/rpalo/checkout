@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+
+# Self Checkout
+# Author: Ryan Palo
+# Takes inputs and prices
+# Calculates subtotal, tax, and total.
+
+declare -a items
+declare -a prices
+tax_rate=".055"
+
+money() {
+  printf "\$%.2f\n" $1
+}
+
+calculate_total() {
+  prices=("$@")
+  subtotal=0
+
+  for price in $prices; do
+    subtotal=$( echo "$price + $subtotal" | bc )
+  done
+  tax=$( echo "$subtotal * $tax_rate" | bc )
+  total=$( echo "$subtotal + $tax" | bc )
+  echo "$subtotal $tax $total"
+}
+
+# Get items
+while read -r -p "Enter an item name (or q to quit): > " item_name; do
+  [[ -z "$item_name" ]] && continue
+  [[ "$item_name" == "q" ]] && break
+
+  items+=("$item_name")
+  while true; do
+    read -r -p "Enter a positive number: > " price
+    if [[ $(echo "$price > 0" | bc -l) -eq 1 ]] ; then
+      break
+    else
+      echo "Try again."
+      sleep 1
+    fi
+  done
+  prices+=("$price")
+done
+
+# Check if they didn't enter any items.
+[[ -z $items ]] && { echo "Have a nice day."; exit 0; }
+
+# Calculations
+read subtotal tax total <<< "$( calculate_total ${prices[@]} )"
+
+# Print Header
+echo "********YOUR BILL********"
+
+# Set up
+count=${#items[@]}
+let end="$count - 1"
+
+# Process each line, printing and adding to subtotal
+for i in $( seq 0 $end ); do
+  echo "${items[$i]}..........$( money ${prices[$i]} )"
+done
+
+# Print Footer
+echo "Subtotal: $( money $subtotal )"
+echo "Tax: $( money $tax )"
+echo "Total: $( money $total )"
+echo "***********************"
+
+exit 0
+
+
