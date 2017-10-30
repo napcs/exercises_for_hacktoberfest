@@ -21,29 +21,49 @@ struct Item {
   }
 }
 
+/**
+ This function converts the array of strings into a total cost
+ it does this by first removing all nil values then calculating
+ the total cost of each item, then it sums the total
+ 
+ - parameter totalCost: An array of Items
+ 
+ - returns: the total cost of all the items
+ */
 func convertCostToNumber(totalCost: [Item?]) -> Double {
   let value = totalCost.flatMap { $0 }.flatMap { $0.price * $0.quantity }.reduce(0, +)
   return value
 }
 
-let taxRate:Double = 5.5
-var itemCost: [Item?] = []
-let itemCount: Int = 3
 
-for i in 1...itemCount {
-  print("Enter price of item \(i): ", terminator: "")
-  let value = readLine()
-  print ("Enter quantity of item \(i): ", terminator: "")
-  let quantity = readLine()
-  itemCost.append(Item(cost: value, amount: quantity))
+/**
+ This function creates a checkout for the given number of items
+ 
+ - parameter items: the number of different items in the checkout
+ - parameter taxRate: the tax rate to be applied to the transaction
+ */
+func createCheckout(for items: Int, with taxRate: Double) {
+  var itemCost: [Item?] = []
+  let itemCount: Int = items
+  
+  for i in 1...itemCount {
+    print("Enter price of item \(i): ", terminator: "")
+    let value = readLine()
+    print ("Enter quantity of item \(i): ", terminator: "")
+    let quantity = readLine()
+    itemCost.append(Item(cost: value, amount: quantity))
+  }
+  
+  let subtotal = convertCostToNumber(totalCost: itemCost)
+  let tax = subtotal * taxRate / 100.0
+  let total = subtotal + tax
+  
+  
+  
+  print("Subtotal: $\(String(format: "%.2f", subtotal))")
+  print("Tax: $\(String(format: "%.2f", tax))")
+  print("Total: $\(String(format: "%.2f", total))")
+  
 }
 
-let subtotal = convertCostToNumber(totalCost: itemCost)
-let tax = subtotal * taxRate / 100.0
-let total = subtotal + tax
 
-
-
-print("Subtotal: $\(String(format: "%.2f", subtotal))")
-print("Tax: $\(String(format: "%.2f", tax))")
-print("Total: $\(String(format: "%.2f", total))")
