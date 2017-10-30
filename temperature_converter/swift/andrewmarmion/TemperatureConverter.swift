@@ -8,7 +8,25 @@
 
 import Foundation
 
-func createStatement(letter: String) -> String {
+enum Temperature: String {
+  case celsius
+  case fahrenheit
+}
+
+enum ValidLetter {
+  case celsius
+  case fahrenheit
+  case invalid
+}
+
+/**
+ This method creates the option statement
+ 
+ - parameter letter: String
+ 
+ - returns: the statement
+ */
+private func createStatement(letter: String) -> String {
   var temp1 = "Celsius"
   var temp2 = "Fahrenheit"
   
@@ -20,7 +38,15 @@ func createStatement(letter: String) -> String {
   return "Press \(letter) to convert from \(temp2) to \(temp1)"
 }
 
-func checkLetter(input: String?) -> ValidLetter {
+
+/**
+ This function checks the letter and returns the correct response
+ 
+ - parameter input: the string the user entered
+ 
+ - returns: a ValidLetter
+ */
+private func checkLetter(input: String?) -> ValidLetter {
   if let input = input {
     switch input {
     case "C","c":
@@ -35,7 +61,13 @@ func checkLetter(input: String?) -> ValidLetter {
   }
 }
 
-func calculateNewTemperature(from temperature: Temperature) {
+/**
+ This function checks to make sure that a valid temperature has been given then
+ facilitates the conversion
+ 
+ - parameter temperature: the temperature that the user wants to convert from
+ */
+private func calculateNewTemperature(from temperature: Temperature) {
   print("Please enter the temperature in \(temperature.rawValue.capitalized): ", terminator: "")
   let input = readLine()
   if let input = input {
@@ -49,7 +81,13 @@ func calculateNewTemperature(from temperature: Temperature) {
   }
 }
 
-func calculateTemp(for temp: Double, from temperature: Temperature) {
+/**
+ This function calculates the correct temperature
+ 
+ - parameter temp: the current temperature
+ - parameter temperature: the units of the current temperature
+ */
+private func calculateTemp(for temp: Double, from temperature: Temperature) {
   switch temperature {
   case .fahrenheit:
     let answer = (temp - 32.0) * 5 / 9
@@ -60,34 +98,31 @@ func calculateTemp(for temp: Double, from temperature: Temperature) {
   }
 }
 
-enum Temperature: String {
-  case celsius
-  case fahrenheit
-}
-
-enum ValidLetter {
-  case celsius
-  case fahrenheit
-  case invalid
-}
 
 
-while true {
-  print(createStatement(letter: "C"))
-  print(createStatement(letter: "F"))
-  print("Your choice: " , terminator: "")
-  let answer = readLine()
-  print("")
-  
-  switch checkLetter(input: answer) {
-  case .celsius:
-    calculateNewTemperature(from: .fahrenheit)
-    break
-  case .fahrenheit:
-    calculateNewTemperature(from: .celsius)
-    break
-  case .invalid:
-    print("Please enter a valid letter.\n")
-    break
+/**
+ This function continually asks the user to convert a temperature
+ */
+func convertTemperatures() {
+  while true {
+    print(createStatement(letter: "C"))
+    print(createStatement(letter: "F"))
+    print("Your choice: " , terminator: "")
+    let answer = readLine()
+    print("")
+    
+    switch checkLetter(input: answer) {
+    case .celsius:
+      calculateNewTemperature(from: .fahrenheit)
+      break
+    case .fahrenheit:
+      calculateNewTemperature(from: .celsius)
+      break
+    case .invalid:
+      print("Please enter a valid letter.\n")
+      break
+    }
   }
+  
 }
+
