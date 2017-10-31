@@ -53,14 +53,14 @@ def draw_headers(lengths):
     max_name = lengths["max_name"] if lengths["max_name"] > len(name) else len(name)
     max_craft = lengths["max_craft"] if lengths["max_craft"] > len(ship) else len(ship)
 
-    print header
-    print "{}|{}".format("-" * max_name, "-" * max_craft)
+    print(header)
+    print("{}|{}".format("-" * max_name, "-" * max_craft))
 
 
 def draw_data(data):
     for name, ship in data["people"]:
         spaces = " " * (data["lengths"]["max_name"] - len(name))
-        print "{}{}| {}".format(name, spaces, ship)
+        print("{}{}| {}".format(name, spaces, ship))
 
 
 def draw_table(data):
