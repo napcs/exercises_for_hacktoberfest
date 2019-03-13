@@ -1,0 +1,139 @@
+47,792 code results
+@s3c-rsolar
+s3c-rsolar/DotNetConf2018 – README.md
+Showing the top four matches
+Last indexed on Nov 29, 2018
+Markdown
+           offline mode : False
+
+conda list
+
+python -V
+Python 3.6.4 :: Anaconda, Inc.
+
+ricardos-MacBook-Pro:DotNetConf2018 rsolar$ conda list anaconda$
+# Name                    Version                   Build  Channel
+anaconda                  5.1.0                    py36_2  
+ricardos-MacBook-Pro:DotNetConf2018 rsolar$
+@Microsoft
+Microsoft/NimbusML – build.sh
+Showing the top two matches
+Last indexed on Jan 8
+Shell
+    echo "  --skipNativeBridge                Build the DotNet bridge and python wheel but use existing native bridge binaries (e.g. <repo>/x64/DbgLinPy3.6/pybridge.so)"
+__runTests=false
+__buildNativeBridge=true
+__buildDotNetBridge=true
+
+while [ "$1" != "" ]; do
+    lowerI="$(echo $1 | awk '{print tolower($0)}')"
+@wol4aravio
+wol4aravio/OSOL.Extremum_old – linux_installation.sh
+Showing the top four matches
+Last indexed on Jul 14, 2018
+Shell
+#!/bin/bash
+
+# Installing Anaconda Python
+mkdir Downloads
+wget https://repo.anaconda.com/archive/Anaconda3-5.1.0-Linux-x86_64.sh -O ./Downloads/anaconda.sh # yes to all except of MS tools
+# Building Runner Apps
+cd OSOL.Extremum/Apps/DotNet/Runner/
+dotnet publish -c Release -o runner
+mv runner ~/DotNetRunner
+@saketj
+saketj/cs838-data-science – machine-learning.ipynb
+Showing the top two matches
+Last indexed on Jul 6, 2018
+Jupyter Notebook
+      "  X2 = np.dot(Xm, R * (S ** (-0.5)))\n",
+      "/Users/deepu/anaconda/lib/python3.6/site-packages/sklearn/discriminant_analysis.py:719: RuntimeWarning: invalid value encountered in multiply\n",
+@noaodatalab
+noaodatalab/dlstack_install – dlstack_install.sh
+Showing the top three matches
+Last indexed 13 days ago
+Shell
+# be done manually if needed).
+
+do_astrometry_dot_net=0
+# ===========================================================================
+
+
+platform=`uname -m`
+# Download and unpack the astrometry.net package
+if [ do_astrometry_dot_net == 1 ]; then
+    curl -O -L https://github.com/dstndstn/astrometry.net/releases/download/0.75/astrometry.net-0.75.tar.gz
+@churximi
+churximi/Python – Theano安装.md
+Showing the top three matches
+Last indexed on Jul 3, 2018
+Markdown
+- 已安装Visual Studio 2013 （都说VS2015太新不推荐）；
+- 借助**Anaconda**来安装theano，因为Anaconda已经集成了很多有用的python库，如numpy、nose、scipy等，强烈推荐。
+cxxflags = -ID:\Anaconda\MinGW\include
+```
+
+![这里写图片描述](http://img.blog.csdn.net/20160610162039729)
+
+- 测试方法2
+@DeepMLNet
+DeepMLNet/DeepNet – Benchmarks.md
+Showing the top two matches
+Last indexed on Jul 3, 2018
+Markdown
+If an operation is not yet implemented for a particular combination of data type and device, the result is replaced by a dash.
+
+Benchmarking was driven by [BenchmarkDotNet](https://benchmarkdotnet.org) using the following options.
+
+```ini
+BenchmarkDotNet=v0.10.14
+MinInvokeCount=1  IterationTime=250.0000 ms  LaunchCount=1
+@JasonChu789
+JasonChu789/JasonChu789.github.io – 2016-12-28-Data-Visualization-Dot-Lang-and-Graphviz.md
+Showing the top two matches
+Last indexed on Dec 25, 2018
+Markdown
+---
+layout: post
+title: "Data Visualization - Dot Lang & Graphviz"
+description: "数据可视化-Dot语言与Graphviz"
+categories: [Data-Mining]
+tags: [数据挖掘, 数据可视化, dot, graphviz]
+redirect_from:
+  - /2016/12/28/
+@liphvf
+liphvf/hashbit – SublimeText.md
+Showing the top four matches
+Last indexed on Jul 7, 2018
+Markdown
+- [Anaconda](https://packagecontrol.io/packages/Anaconda) : Python Autocompletion on dot , Powerful IDE , Advanced Configuration , Run Tests using Anaconda , Linting theme customization , Using Vagrant Environments
+- [Markdown HTML Preview](https://sublime.wbond.net/packages/Markdown%20HTML%20Preview) não consegui fazer funcionar ainda.
+
+**Substituidos pelo Anaconda**
+- [Python PEP8 Autoformat](https://sublime.wbond.net/packages/Python%20PEP8%20Autoformat)
+@fedberry
+fedberry/fedberry-logos – fedberry-logos.spec
+Showing the top four matches
+Last indexed on Jul 2, 2018
+RPM Spec
+%{_kde4_iconsdir}/oxygen/
+
+
+%changelog
+* Mon Jun 05 2017 Vaughan <devel @ agrez dot net> - 25.2-1
+- Update xfce4_xicon1.svg
+
+* Thu Apr 06 2017 Vaughan <devel @ agrez dot net> - 25.1-1
+- Update FedBerry logos and icons for f25 release
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
